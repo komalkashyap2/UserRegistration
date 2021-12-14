@@ -107,19 +107,24 @@ namespace UserRegistration
         /// UseCase5
         /// Validating Password
         /// </summary>
-         
+
         /// <summary>
         /// For UseCase6
         /// Validating At Least Minimum 8 characters
         /// <summary>
 
+        /// <summary>
+        /// For UseCase7
+        /// Validating At Least Minimum 8 characters with numeric number
+        /// <summary>
         public void ValidatingPassWord()
         {
             //string passwordPattern = @"[a-z,A-Z,0-9]{8,}$";
-            string passwordPattern = @"^(?=.*[A-Z]).{8,}$";
+           // string passwordPattern = @"^(?=.*[A-Z]).{8,}$";
+            string passwordPattern = @"^(?=.*\d).{8,}$";
             Regex regex = new Regex(passwordPattern);
            // Console.WriteLine("Enter password minimum 8 characters");
-            Console.WriteLine("Enter password minimum 8 characters with one upper case");
+            Console.WriteLine("Enter password minimum 8 characters with one numeric number");
             string password = Console.ReadLine();
             bool res = regex.IsMatch(password);
             if (res)
