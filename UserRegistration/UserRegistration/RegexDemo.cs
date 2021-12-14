@@ -19,6 +19,8 @@ namespace UserRegistration
             ValidatingLastName();
             Console.WriteLine("Validating Email Address");
             ValidatingEmailId();
+            Console.WriteLine("Validating Phone Number");
+            ValidatingPhoneNum();
 
 
         }
@@ -79,6 +81,28 @@ namespace UserRegistration
             {
                 Console.WriteLine("Please enter a Valid Email!");
             }
+        }
+        /// <summary>
+        /// UseCase4
+        /// Validating Phone Number
+        /// </summary>
+        public void ValidatingPhoneNum()
+        {
+            string phoneNumPattern = @"^[1-9]\d{9}$";
+            Regex regex = new Regex(phoneNumPattern);
+            Console.WriteLine("Enter valid Phone Number");
+            string phoneNumber = Console.ReadLine();
+            bool res = regex.IsMatch(phoneNumber);
+            if (res)
+            {
+                Console.WriteLine("valid Phone Number");
+            }
+            else
+            {
+                Console.WriteLine("Please enter a Valid Phone Number!");
+            }
+
+
         }
       }
 }
