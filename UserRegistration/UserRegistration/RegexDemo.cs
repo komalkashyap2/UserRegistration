@@ -21,7 +21,8 @@ namespace UserRegistration
             ValidatingEmailId();
             Console.WriteLine("Validating Phone Number");
             ValidatingPhoneNum();
-
+            Console.WriteLine("Validating password");
+            ValidatingPassWord();
 
         }
         /// <summary>
@@ -101,7 +102,26 @@ namespace UserRegistration
             {
                 Console.WriteLine("Please enter a Valid Phone Number!");
             }
-
+        }
+        /// <summary>
+        /// UseCase5
+        /// Validating Password
+        /// </summary>
+        public void ValidatingPassWord()
+        {
+            string passwordPattern = @"[a-z,A-Z,0-9]{8,}$";
+            Regex regex = new Regex(passwordPattern);
+            Console.WriteLine("Enter password minimum 8 characters");
+            string password = Console.ReadLine();
+            bool res = regex.IsMatch(password);
+            if (res)
+            {
+                Console.WriteLine("Password valid");
+            }
+            else
+            {
+                Console.WriteLine("invalid password");
+            }
 
         }
       }
