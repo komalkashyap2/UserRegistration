@@ -120,11 +120,13 @@ namespace UserRegistration
         public void ValidatingPassWord()
         {
             //string passwordPattern = @"[a-z,A-Z,0-9]{8,}$";
-           // string passwordPattern = @"^(?=.*[A-Z]).{8,}$";
-            string passwordPattern = @"^(?=.*\d).{8,}$";
+            // string passwordPattern = @"^(?=.*[A-Z]).{8,}$";
+            // string passwordPattern = @"^(?=.*\d).{8,}$";
+            string passwordPattern = @"^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*?&])([a-zA-Z0-9@$!%*?&]{8,})$";
+           
             Regex regex = new Regex(passwordPattern);
            // Console.WriteLine("Enter password minimum 8 characters");
-            Console.WriteLine("Enter password minimum 8 characters with one numeric number");
+            Console.WriteLine("Enter password minimum 8 characters with one Special character");
             string password = Console.ReadLine();
             bool res = regex.IsMatch(password);
             if (res)
